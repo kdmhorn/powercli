@@ -12,7 +12,8 @@
 
 
 ## Change Lines below for list of hosts to git
-$hostList = Get-Cluster RIH-CtxEpicNonProd|Get-VMHost
+$cluster = Read-Host -Prompt "Enter the cluster name to collect HBA information from: "
+$hostList = Get-Cluster $cluster|Get-VMHost
 
 ForEach ($vmhost in $hostList){
 	$wwpnlist = $vmhost|Get-VMHostHba|Where {$_.type -eq 'FibreChannel'}
