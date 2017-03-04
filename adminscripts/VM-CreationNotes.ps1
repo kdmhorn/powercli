@@ -1,4 +1,4 @@
-﻿<# 
+<# 
 .SYNOPSIS 
    VM_CreationNotes to replace the Notes on newly deployed virtual machines with
    information regarding there deployment, including date, time, user and method
@@ -176,14 +176,14 @@ ForEach ($vcenter in $vCenterServers){
 
 	$VIEvent|%{
 		$NewNote = ""
-		$VM = Get-View -Id $_.VM.Vm -Server $vcenter -Property Config	
+		$VM = Get-View -Id $_.VM.Vm -Server $vcenter -Property Name,Config	
 		
 		If ($VM){
 			$NewNote = $VM.Config.GuestFullName+$newline
 			$NewNote += "Deployed: "+$_.CreatedTime.DateTime+$newline
 			$NewNote += "Deployed by "+$_.UserName+$newline
 			$NewNote += $_.FullFormattedMessage
-			$VM|Set-VM -Notes $NewNote -Confirm:$false
+			Set-VM -VM $VM.Name -Notes $NewNote -Confirm:$false
 		}
 	}
 
