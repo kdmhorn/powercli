@@ -9,7 +9,7 @@
    The script will take in vCenter events for the latest 24 hour period filtering
    for vm creation, clone or vapp deployment and parse the data.
    
-   Utilizes GET-VIEventsPlus by Luc Dekfor faster event 
+   Utilizes GET-VIEventsPlus by Luc Dekens for faster event gathering
 
 .NOTES 
    File Name  : VM_CreationNotes.ps1 
@@ -42,7 +42,7 @@
 #>
 
 <#   
- .SYNOPSIS  Returns vSphere events    
+ .SYNOPSIS  Function GET-VIEventPlus Returns vSphere events    
  .DESCRIPTION The function will return vSphere events. With
  	the available parameters, the execution time can be
  	improved, compered to the original Get-VIEvent cmdlet. 
