@@ -8,13 +8,13 @@
    VM_CreationNotes is run daily as a scheduled task requiring no interaction. 
    The script will take in vCenter events for the latest 24 hour period filtering
    for vm creation, clone or vapp deployment and parse the data.
-   
    Utilizes GET-VIEventsPlus by Luc Dekens for faster event gathering
 
 .NOTES 
    File Name  : VM_CreationNotes.ps1 
    Author     : KWH
    Version    : 1.02
+   License    : GNU GPL 3.0 www.gnu.org/licenses/gpl-3.0.en.html
    
 .INPUTS
    No inputs required
