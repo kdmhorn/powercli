@@ -1,9 +1,9 @@
 ﻿<# 
 .SYNOPSIS 
-   vm-getHostHBA will return a list of HBA WWPN addresses from a given cluster
+   VM-GetHostHBA will return a list of HBA WWPN addresses from a given cluster
    
 .DESCRIPTION
-   vm-getHostHBA is useful when setting up a new host or cluster in VMWare
+   VM-GetHostHBA is useful when setting up a new host or cluster in VMWare
    to provide storage administrators a list of WWPN address for fiber connected
    HBAs for target and zoning purposes. It returns the addresses in a human-
    friendly format of xx:xx:xx:xx
