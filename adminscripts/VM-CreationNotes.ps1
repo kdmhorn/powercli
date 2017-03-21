@@ -39,6 +39,7 @@
 	#		KWH - Added Register Events to list
 	#		KWH - Included Get-VIEventPlus by LucD
 	#20170321       KWH - Added event $VIEvent array declaration/reset and $VM reset on loops
+	#               KWH - Converted returned events to Local Time
 
 #>
 
@@ -183,7 +184,7 @@ ForEach ($vcenter in $vCenterServers){
 		
 		If ($VM){
 			$NewNote = $VM.Config.GuestFullName+$newline
-			$NewNote += "Deployed: "+$_.CreatedTime.DateTime+$newline
+			$NewNote += "Deployed: "+$_.CreatedTime.ToLocaltime().DateTime+$newline
 			$NewNote += "Deployed by "+$_.UserName+$newline
 			$NewNote += $_.FullFormattedMessage
 			Set-VM -VM $VM.Name -Notes $NewNote -Confirm:$false
