@@ -13,7 +13,7 @@
 .NOTES 
    File Name  : VM_CreationNotes.ps1 
    Author     : KWH
-   Version    : 1.02
+   Version    : 1.03
    License    : GNU GPL 3.0 www.gnu.org/licenses/gpl-3.0.en.html
    
 .INPUTS
@@ -33,11 +33,12 @@
 .CHANGE LOG
 	#20170301	KWH - Removed canned VM Initialize script in favor of get-module
 	#20170303	KWH - Change VIEvent Call to date range rather than maxSamples
-	#			KWH - Optimized event call where to array match
-	#			KWH - Updated Synopsis and Description
-	#			KWH - Changed vcenter list to text file input
-	#			KWH - Added Register Events to list
-	#			KWH - Included Get-VIEventPlus by LucD
+	#		KWH - Optimized event call where to array match
+	#		KWH - Updated Synopsis and Description
+	#		KWH - Changed vcenter list to text file input
+	#		KWH - Added Register Events to list
+	#		KWH - Included Get-VIEventPlus by LucD
+	#20170321       KWH - Added event $VIEvent array declaration/reset and $VM reset on loops
 
 #>
 
@@ -170,12 +171,14 @@ $StartDate = ($Today).AddDays($dayBtwnRuns)
 ForEach ($vcenter in $vCenterServers){
 	Connect-VIServer $vcenter  -Credential $Cred -WarningAction SilentlyContinue -ErrorAction SilentlyContinue
 	$TargetVM = $null
+	$VIEvent = @()
 	$Today = Get-Date
 	$StartDate = ($Today).AddDays($dayBtwnRuns)
 	$VIEvent = Get-VIEventPlus -Start $StartDate -Finish $Today -EventType $vmCreationTypes
 
 	$VIEvent|%{
 		$NewNote = ""
+		$VM = $null
 		$VM = Get-View -Id $_.VM.Vm -Server $vcenter -Property Name,Config	
 		
 		If ($VM){
