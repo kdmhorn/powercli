@@ -10,3 +10,9 @@ A collection of scripts written for the administrator's toolbox.
   hosts within a cluster along with the HBA addresses. It is useful to
   provide Storage administrators with WWPN target information on newly
   created hosts and/or clusters.
+
+<b>VM-ShutdownNotes:</b>  
+  A script designed to be run as a scheduled task. The script will seek 
+  VM's shutdown between runs in a VM environment and add additional
+  information to the Notes with information regarding the shutdown including
+  the date/time and user.  
