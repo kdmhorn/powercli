@@ -1,5 +1,5 @@
 This folder contains functions either created by me or found on the interwebs
 
-Contents
+<b>Contents:</b>
 
-Get-VIEventPlus.ps1  Author: Luc Dekens
+<b>Get-VIEventPlus.ps1</b>  Author: Luc Dekens
