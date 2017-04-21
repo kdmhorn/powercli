@@ -7,6 +7,7 @@
    VM_ShutdownNotes is run daily as a scheduled task requiring no interaction. 
    The script will take in vCenter events for the latest 24 hour period filtering
    for vm shutdownguest and poweroff events and parse the data.
+   Uses Get-VIEventsPlus by LucD for performance
 
 .NOTES 
    File Name  : VM_ShutdownNotes.ps1 
@@ -32,6 +33,7 @@
 
 #>
 
+# Get-VIEventPlus Function by LucD below.
 <#   
  .SYNOPSIS  Returns vSphere events    
  .DESCRIPTION The function will return vSphere events. With
@@ -132,8 +134,9 @@
  		}
  		$events
  	}
- }
+ } #End Get-VIEventsPlus
 
+#Now back to normal programming
 #Load VMWare modules
 Get-Module -Listavailable VMWare* | Import-Module
 
