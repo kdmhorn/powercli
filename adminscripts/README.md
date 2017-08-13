@@ -1,7 +1,7 @@
 A collection of scripts written for the administrator's toolbox.
 
 <b>VM-CreationNotes:</b>  
-  A script designed to be run as a scheduled task. The script will seek 
+  A script designed to be run as a Windows scheduled task on daily basis. The script will seek 
   newly created/deployed/registered guest machines in a VM environment
   and replace the Notes with information regarding the VM Creation
   
@@ -12,7 +12,7 @@ A collection of scripts written for the administrator's toolbox.
   created hosts and/or clusters.
 
 <b>VM-ShutdownNotes:</b>  
-  A script designed to be run as a scheduled task. The script will seek 
+  A script designed to be run as a Windows scheduled task on daily basis. The script will seek 
   VM's shutdown between runs in a VM environment and add additional
   information to the Notes with information regarding the shutdown including
   the date/time and user.  
