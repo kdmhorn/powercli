@@ -8,8 +8,6 @@
    HBAs for target and zoning purposes. It returns the addresses in a human-
    friendly format of xx:xx:xx:xx
    
-   Utilizes GET-VIEventsPlus by Luc Dekfor faster event 
-
 .NOTES 
    File Name  : vm-getHostHBA.ps1 
    Author     : KWH
