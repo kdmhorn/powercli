@@ -2,8 +2,8 @@
  	Script originally written and run in PowerCLI 6.3 R1.
 	
 	Known issue: In some cases, the SLEEP following adapter creation may not be high enough causing one 
-	or more interfaces to remain on the temporary VSS created and preventing later
-	subsequent of the VSS. 
+	or more interfaces to remain on the temporary VSS created and preventing subsequent
+	removal of the VSS. 
 #>
 
 #	Following lines are generic - modify appropriately for environment
