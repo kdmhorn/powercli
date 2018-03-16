@@ -1,10 +1,9 @@
-﻿<#	Script assumes a connection to vcenter server has been made and that
-	PowerCLI 6.3 R1 used and imported. May work in other revs of PowerCLI 6.x.
-	Script is also configured for DVS.
+﻿<#	Migrates existing vMotion adapters from standard to vmotion IP stack.
+ 	Script originally written and run in PowerCLI 6.3 R1.
 	
-	Known issue: The sleep following adapter creation may not be high enough causing one 
+	Known issue: In some cases, the SLEEP following adapter creation may not be high enough causing one 
 	or more interfaces to remain on the temporary VSS created and preventing later
-	removal of the VSS. 
+	subsequent of the VSS. 
 #>
 
 $dnslist = "192.168.1.2","192.168.1.3"
@@ -53,8 +52,8 @@ write-host -ForeGroundColor green "Setting Up Network on" $vmhost.Name
 #	Get existing vmotion adapters from the host
 	$vmkIntList = $vmhost|Get-VMHostNetworkAdapter | Where {$_.VMotionEnabled}
 	
-<#	Create temporary standard switch and portgroup. Operation can be done direct to DVS, but is not
-	as clean as it leaves ports in a working, but unknown state to the DVS.
+<#	Create temporary standard switch and portgroup. In original tests direct to DVS, 
+	ports worked but were left in 'unknown' state. VLAN picked is arbitrary.
 #>
 	$tempvswitch = $vmhost|New-VirtualSwitch -Name “temp” 
 	Start-Sleep -Seconds 2
@@ -78,7 +77,7 @@ write-host -ForeGroundColor green "Setting Up Network on" $vmhost.Name
 		$esxcli2.network.ip.interface.ipv4.set.Invoke($nisargs) | Out-Null
 		Start-Sleep -Seconds 10
 		
-#		Migrate new adapter to the DVS
+#		Migrate new adapters to the original DVS portgroup
 		$vmhost | Get-VMHostNetworkAdapter -Name $vmk.name | Set-VMHostNetworkadapter -PortGroup $vmk.PortGroupName -Confirm:$false
 
 	}
