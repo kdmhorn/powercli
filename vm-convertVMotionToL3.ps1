@@ -6,6 +6,7 @@
 	subsequent of the VSS. 
 #>
 
+#	Following lines are generic - modify appropriately for environment
 $dnslist = "192.168.1.2","192.168.1.3"
 $domlist = "company.org","internal.company.org"
 $gateway = "192.168.1.1"
