@@ -1,0 +1,3 @@
+name,localds,vmip1,vmip2,cluster,vswitch,vcenter,user,pw
+vm-host01.yourorganization.org,local-vmhost01,192.168.1.21,192.168.2.20,VM-Cluster1,vSwitch0,vcenter1.yourorganization.org,root,password
+vm-host02.yourorganization.org,local-vmhost02,172.16.1.21,172.16.2.21,VM-Cluster2,vSwitch0,vcenter2.yourorganization.org,root,password
