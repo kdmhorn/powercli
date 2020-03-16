@@ -5,6 +5,7 @@
 
 .MODIFICATIONS
     20200306  -  Initial release of the script
+    20200316  -  Null'd $hostlist to prevent accidental run with old values in shell
 
 .DESCRIPTION
     Script uses CSV files to host to virtual clusters in a virtual environment
@@ -177,6 +178,7 @@ If (!$csvfile){
     $csvfile = Get-CsvFromDialog
 }
 
+$hostlist = $null
 $hostlist = Import-Csv $csvfile
 
 ### Load Lifespan vSphere Standards Hash-Tables
