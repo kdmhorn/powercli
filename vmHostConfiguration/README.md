@@ -11,6 +11,12 @@ To run, the script requires three files - the __vmHostConfiguration.ps1__ script
 
 As written, the script requires one or more VMhosts that have been installed to a minimum configuration and connected and reachable on a network (IPv4 configured). The host should have a DNS entry, but will work if the IP address is substituted for FQDN in the CSV file.
 
+The script currently presumes that vCenter credentials have been stored in a $cred variable. This can be achieved by simply running the line below in PowerShell prior to script execution - a future version of the script will check for credentials and prompt the user prior to execution.
+
+```
+$cred - Get-Credential -message "Enter vSphere credentials"
+```
+
 ### CSV Input File ###
 See the [CSVFILE.md](CSVFILE.md) for details and definitions on the items placed in the CSV file.
 
