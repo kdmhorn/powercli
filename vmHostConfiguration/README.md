@@ -13,7 +13,7 @@ As written, the script requires one or more VMhosts that have been installed to 
 
 The script currently presumes that vCenter credentials have been stored in a $cred variable. This can be achieved by simply running the line below in PowerShell prior to script execution - a future version of the script will check for credentials and prompt the user prior to execution.
 
-```
+```Powershell
 $cred = Get-Credential -message "Enter vSphere credentials"
 ```
 
