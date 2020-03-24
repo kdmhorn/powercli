@@ -21,5 +21,5 @@ $cred = Get-Credential -message "Enter vSphere credentials"
 See the [CSVFILE.md](CSVFILE.md) for details and definitions on the items placed in the CSV file.
 
 ### Defaults JSON File ###
-See the [JSCONFILE.md](JSONFILE.md) for details and definitions of the data placed in the JSON file.
+See the [JSONFILE.md](JSONFILE.md) for details and definitions of the data placed in the JSON file.
 
